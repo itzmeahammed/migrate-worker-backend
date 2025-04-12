@@ -1,0 +1,6 @@
+flask
+mongoengine
+python-dotenv
+pyjwt
+flask-cors
+

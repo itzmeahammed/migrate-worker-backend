@@ -126,8 +126,9 @@ class JobApplicationController:
         try:
             query = request.args.to_dict()
             if not query:
-                return CommonException.ParamsRequiredException()
-            applications = JobApplication.objects(**query)
+                applications = JobApplication.objects()
+            else:
+                applications = JobApplication.objects(**query)
             return jsonify([app.to_json() for app in applications]), 200
         except Exception as e:
             logging.error(f"Error in getApplicationsByJob: {str(e)}")
